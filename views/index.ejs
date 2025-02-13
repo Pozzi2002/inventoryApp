@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rich store inventory</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
+    <nav>
+      <h2>Rich store inventory</h2>
+    </nav>
+    <hr>
+    <main>
+      <div>
+        <p><b>Here you can manage your assets</b></h3>
+        <p>Total items: <%=getSums[0].quantity %></p>
+        <p>Total our point: <%=getSums[0].shops %></p>
+      </div>
+    </main>
+    <footer>
+      <hr>
+      <h2>Link to our store: <a href="https://myrichfamily.netlify.app/">Link</a></h2> 
+    </footer>
   </body>
 </html>

@@ -1,6 +1,5 @@
 const { Client } = require('pg');
 
-// 40 * 18 + 40 * 29 + 100 * 3
 const SQL = `
 CREATE TABLE products (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, name TEXT);
 CREATE TABLE productsInfo (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, color TEXT, price INTEGER, product_id INTEGER);

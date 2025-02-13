@@ -7,8 +7,11 @@ require('dotenv').config();
 
 
 
-app.get('/', indexRouter);
+app.use('/', indexRouter);
 
+
+const pathpublic = path.join(__dirname, "public");
+app.use(express.static(pathpublic));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 const PORT = process.env.PORT || 8000;

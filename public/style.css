@@ -5,3 +5,26 @@ footer {
     right:0;
     left: 0;
 }
+table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 3rem;
+}
+th, td {
+    border: 1px solid #dddddd;
+}
+th {
+    background-color: #efefef;
+    padding: 10px;
+    font-size: 1.8rem;
+}
+td {
+    font-size: 1.5rem;
+    padding: 7px;
+}
+tr:nth-child(even) {
+    background-color: #e8e6e6;
+}
+table span {
+    padding: 20px;
+}

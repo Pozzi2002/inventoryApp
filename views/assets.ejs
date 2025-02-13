@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich store inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+      <h2>Rich store inventory</h2>
+    </nav>
+    <hr>
+    <form>
+        <label for="search">Search item: </label>
+        <input type="text" id="search" name="search">
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+        <% assets.map((asset) => { %>
+            <tr>
+                <td><%= asset.name %></td>
+                <td><%= asset.color %></td>
+                <td><%= asset.price %></td>
+                <td><%= asset.quantity %></td>
+                <td><%= asset.address %></td>
+                <td><span style="color: blue">Edit</span><span style="color: red">Delete</span></td>
+            </tr>
+        <% }) %> 
+    </table>
+</body>
+</html>

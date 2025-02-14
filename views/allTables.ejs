@@ -15,7 +15,7 @@
     </nav>
     <hr>
     <main>
-        <div>
+        <div class="tableDiv">
           <table>
             <tr>
                 <th>Name</th>
@@ -26,13 +26,13 @@
                 </tr>
             <% }) %> 
           </table>
-          <form>
+          <form action="tables/name" method="POST">
             <label for="name">Add name:</label>
             <input type="text" id='name' name='name' required />
             <button type="submit">Submit</button>
           </form>
         </div>
-        <div>
+        <div class="tableDiv">
           <table>
             <tr>
                 <th>Color</th>
@@ -43,8 +43,13 @@
                 </tr>
             <% }) %> 
           </table>
+          <form>
+            <label for="color">Add Color:</label>
+            <input type="text" id='color' name='color' required />
+            <button type="submit">Submit</button>
+          </form>
         </div>
-        <div>
+        <div class="tableDiv">
           <table>
             <tr>
                 <th>Address</th>
@@ -55,6 +60,11 @@
                 </tr>
             <% }) %> 
           </table>
+          <form>
+            <label for="address">Add address:</label>
+            <input type="text" id='address' name='address' required />
+            <button type="submit">Submit</button>
+          </form>
         </div>  
     </main>
   </body>

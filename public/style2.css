@@ -4,6 +4,10 @@ main {
   justify-content: center;
   align-items: center;
 }
+.tableDiv {
+  display: flex;
+  flex-direction: column;
+}
 table {
   border-collapse: collapse;
   margin-top: 2rem;
@@ -34,21 +38,16 @@ form {
   align-items: center;
   flex-direction: column;
 }
-
-form label {
-  position: relative;
-  bottom: 0.3rem;
-  right: 5rem;
-  font-size: 1.3rem;
-}
-
-form input {
-  font-size: 1.3rem;
-}
-
 form button {
+  margin: 0.3rem;
+  font-size: 1.3rem;
+  padding: 3px 8px;
+}
+form input {
+  padding: 5px;
   font-size: 1.3rem;
 }
-form button:hover {
-  cursor: pointer;
+form label {
+  font-size: 1.4rem;
 }
+

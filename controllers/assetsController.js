@@ -16,3 +16,8 @@ exports.GetAllTables = async (req, res) => {
   const addresses = await db.addressesTable();
   res.render('allTables', {products: products, colors: colors, addresses: addresses});
 };
+
+exports.addToProductTable = async (req, res) => {
+    await db.addToProductTable(req.body.name);
+    res.redirect('/assets/tables')
+}

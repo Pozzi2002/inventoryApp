@@ -42,3 +42,8 @@ exports.addressesTable = async () => {
    const { rows } = await pool.query('SELECT address FROM addresses');
    return rows;
 }
+
+exports.addToProductTable = async (name) => {
+   await pool.query('INSERT INTO products (name) VALUES ($1)', [name]);
+   return
+};

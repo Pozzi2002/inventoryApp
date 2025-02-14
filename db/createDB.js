@@ -1,51 +1,45 @@
 const { Client } = require('pg');
 
 const SQL = `
-CREATE TABLE products (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, name TEXT);
-CREATE TABLE productsInfo (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, color TEXT, price INTEGER, product_id INTEGER);
-CREATE TABLE store (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, address TEXT, quantity INTEGER, productInfo_id INTEGER);
+CREATE TABLE products (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, name TEXT, unique(name));
+CREATE TABLE colors (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, color TEXT, unique(color));
+CREATE TABLE addresses (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, address TEXT, unique(address));
+CREATE TABLE assets (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, name_id INTEGER, color_id INTEGER, address_id INTEGER, price INTEGER, quantity INTEGER);
 
-INSERT INTO products (name) VALUES ('T-shirt'), ('Hoodie'), ('Pants'), ('Belt'), ('Sock');
-INSERT INTO productsInfo (color, price, product_id) 
-  VALUES
-    ('white', 40, 1),
-    ('black', 40, 1),
-    ('gold', 100, 1),
-    ('white', 70, 2),
-    ('black', 70, 2),
-    ('black', 60, 3),
-    ('gray', 55, 4),  
-    ('black', 55, 4),
-    ('white', 55, 4),
-    ('brown', 55, 4),
-    ('white', 15, 5),
-    ('black', 15, 5);
-INSERT INTO store (address, quantity, productInfo_id)
-  VALUES
-    ('Moscow', 10, 1),
-    ('Moscow', 13, 2),
-    ('Moscow', 1, 3),
-    ('Moscow', 7, 4),
-    ('Moscow', 7, 5),
-    ('Moscow', 6, 6),
-    ('Moscow', 3, 7),
-    ('Moscow', 4, 8),
-    ('Moscow', 3, 9),
-    ('Moscow', 5, 10),
-    ('Moscow', 8, 11),
-    ('Moscow', 8, 12),
-    ('London', 8, 1),
-    ('London', 16, 2),
-    ('London', 2, 3),
-    ('London', 5, 4),
-    ('London', 3, 5),
-    ('London', 8, 6),
-    ('London', 1, 7),
-    ('London', 7, 8),
-    ('London', 2, 9),
-    ('London', 8, 10),
-    ('London', 12, 11),
-    ('London', 8, 12);
+INSERT INTO products (name) VALUES ('T-shirt'), ('Hoodie'), ('Pants'), ('Shorts'), ('Belt'), ('Sock');
+INSERT INTO colors (color) VALUES ('Black'), ('White'), ('Gold'), ('Gray'), ('Brown');
+INSERT INTO addresses (address) VALUES ('Moscow'), ('London');
+INSERT INTO assets (name_id, color_id, address_id, price, quantity) 
+  VALUES 
+  (1, 1, 1, 70, 12),
+  (1, 2, 1, 70, 8),
+  (1, 3, 1, 130, 3),
+  (2, 1, 1, 140, 9),
+  (2, 2, 1, 140, 11),
+  (3, 1, 1, 135, 5),
+  (3, 2, 1, 135, 6),
+  (4, 1, 1, 75, 13),
+  (4, 2, 1, 75, 13),
+  (5, 1, 1, 105, 4),
+  (5, 3, 1, 175, 1),
+  (5, 5, 1, 105, 2),
+  (6, 1, 1, 20, 22),
+  (6, 2, 1, 20, 18),
+
+  (1, 1, 2, 70, 14),
+  (1, 2, 2, 70, 6),
+  (1, 3, 2, 130, 5),
+  (2, 1, 2, 140, 6),
+  (2, 2, 2, 140, 13),
+  (3, 1, 2, 135, 5),
+  (3, 2, 2, 135, 4),
+  (4, 1, 2, 75, 12),
+  (4, 2, 2, 75, 11),
+  (5, 1, 2, 105, 3),
+  (5, 3, 2, 175, 2),
+  (5, 5, 2, 105, 4),
+  (6, 1, 2, 20, 21),
+  (6, 2, 2, 20, 22);
 `
 
 async function main() {

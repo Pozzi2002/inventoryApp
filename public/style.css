@@ -8,7 +8,8 @@ footer {
 table {
     border-collapse: collapse;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 th, td {
     border: 1px solid #dddddd;
@@ -27,4 +28,29 @@ tr:nth-child(even) {
 }
 table span {
     padding: 20px;
+}
+
+form {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+form label {
+    position: relative;
+    bottom: 0.3rem;
+    right: 5rem;
+    font-size: 1.3rem;
+}
+
+form input {
+    font-size: 1.3rem;
+}
+
+form button {
+    font-size: 1.3rem;
+}
+form button:hover {
+    cursor: pointer;
 }

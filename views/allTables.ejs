@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich store inventory</title>
+    <link rel="stylesheet" href="../style2.css">
+  </head>
+  <body>
+    <nav>
+      <h2>Rich store inventory</h2>
+      <a href="/"><p>Home</p></a>
+      <a href="/assets">All assets</a>
+      <a href="/assets/tables">Edit tables</a>
+    </nav>
+    <hr>
+    <main>
+        <div>
+          <table>
+            <tr>
+                <th>Name</th>
+            </tr>
+            <% products.map((asset) => { %>
+                <tr>
+                    <td><%= asset.name %></td>
+                </tr>
+            <% }) %> 
+          </table>
+          <form>
+            <label for="name">Add name:</label>
+            <input type="text" id='name' name='name' required />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <div>
+          <table>
+            <tr>
+                <th>Color</th>
+            </tr>
+            <% colors.map((asset) => { %>
+                <tr>
+                    <td><%= asset.color %></td>
+                </tr>
+            <% }) %> 
+          </table>
+        </div>
+        <div>
+          <table>
+            <tr>
+                <th>Address</th>
+            </tr>
+            <% addresses.map((asset) => { %>
+                <tr>
+                    <td><%= asset.address %></td>
+                </tr>
+            <% }) %> 
+          </table>
+        </div>  
+    </main>
+  </body>
+</html>

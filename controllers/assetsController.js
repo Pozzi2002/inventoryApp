@@ -47,3 +47,33 @@ exports.addToAssetsTable = async (req, res) => {
     await db.addToAssetsTable(req.body.name, req.body.color, req.body.address, req.body.price, req.body.quantity)
     res.redirect('/assets')
 }
+
+exports.deleteProductFromTable = async (req, res) => {
+    await db.deleteProductFromTable(req.body.id)
+    res.redirect('/assets/tables')
+}
+
+exports.deleteColorFromTable = async (req, res) => {
+    await db.deleteColorFromTable(req.body.id)
+    res.redirect('/assets/tables')
+}
+
+exports.deleteAddressFromTable = async (req, res) => {
+    await db.deleteAddressFromTable(req.body.id)
+    res.redirect('/assets/tables')
+}
+
+exports.editProductFromTable = async (req, res) => {
+    await db.editProductFromTable(req.body.newName, req.body.id)
+    res.redirect('/assets/tables')
+}
+
+exports.editColorFromTable = async (req, res) => {
+    await db.editColorFromTable(req.body.newColor, req.body.id)
+    res.redirect('/assets/tables')
+}
+
+exports.editAddressFromTable = async (req, res) => {
+    await db.editAddressFromTable(req.body.newAddress, req.body.id)
+    res.redirect('/assets/tables')
+}

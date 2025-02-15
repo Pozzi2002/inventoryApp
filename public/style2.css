@@ -15,6 +15,7 @@ table {
 }
 th, td {
   border: 1px solid #dddddd;
+  text-align: center;
 }
 th {
   background-color: #efefef;
@@ -82,4 +83,24 @@ table span {
 
 .assetsSelects input {
   width: 3rem;
+}
+
+.editForm {
+  margin: 2rem 0 2rem 0;
+}
+.editForm label {
+  font-size: 1.2rem;
+}
+
+.editForm select, option {
+  font-size: 1.1rem;
+}
+.editForm input {
+  padding: 2px;
+  font-size: 1rem;
+  width: 170px
+}
+.editForm button {
+  font-size: 1.2rem;
+  cursor: pointer;
 }

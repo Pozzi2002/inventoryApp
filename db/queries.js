@@ -64,3 +64,32 @@ exports.addToAssetsTable = async (name_id, color_id, address_id, price = 0, quan
   return
 };
 
+exports.deleteProductFromTable = async (id) => {
+   await pool.query(`DELETE FROM products WHERE id = $1`, [id]);
+   return
+};
+
+exports.deleteColorFromTable = async (id) => {
+   await pool.query(`DELETE FROM colors WHERE id = $1`, [id]);
+   return
+};
+
+exports.deleteAddressFromTable = async (id) => {
+   await pool.query(`DELETE FROM addresses WHERE id = $1`, [id]);
+   return
+};
+
+exports.editProductFromTable = async (newName, id) => {
+   await pool.query(`UPDATE products SET name = $1 WHERE id = $2`, [newName, id])
+   return
+}
+
+exports.editColorFromTable = async (newColor, id) => {
+   await pool.query(`UPDATE colors SET color = $1 WHERE id = $2`, [newColor, id])
+   return
+}
+
+exports.editAddressFromTable = async (newAddress, id) => {
+   await pool.query(`UPDATE addresses SET address = $1 WHERE id = $2`, [newAddress, id])
+   return
+}

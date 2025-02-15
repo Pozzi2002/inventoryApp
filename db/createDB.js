@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-
+require('dotenv').config();
 const SQL = `
 CREATE TABLE products (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, name TEXT, unique(name));
 CREATE TABLE colors (id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, color TEXT, unique(color));

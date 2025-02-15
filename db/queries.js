@@ -1,12 +1,7 @@
 const pool = require('./pool');
 
-exports.getSums = async () => {
-   const { rows } = await pool.query('SELECT COUNT(*) AS quantity, COUNT(DISTINCT address_id) AS shops FROM assets');
-   return rows;
-};
-
 exports.getAllAssets = async () => {
-   const { rows } = await pool.query("SELECT name, color, address, price, quantity FROM assets JOIN products ON (name_id = products.id) JOIN colors ON (color_id = colors.id) JOIN addresses ON (address_id = addresses.id)")
+   const { rows } = await pool.query("SELECT assets.id, name, color, address, price, quantity FROM assets JOIN products ON (name_id = products.id) JOIN colors ON (color_id = colors.id) JOIN addresses ON (address_id = addresses.id)")
    return rows
 };
 
@@ -76,6 +71,11 @@ exports.deleteColorFromTable = async (id) => {
 
 exports.deleteAddressFromTable = async (id) => {
    await pool.query(`DELETE FROM addresses WHERE id = $1`, [id]);
+   return
+};
+
+exports.deleteAssetFromTable = async (id) => {
+   await pool.query(`DELETE FROM assets WHERE id = $1`, [id]);
    return
 };
 

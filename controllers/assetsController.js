@@ -77,3 +77,8 @@ exports.editAddressFromTable = async (req, res) => {
     await db.editAddressFromTable(req.body.newAddress, req.body.id)
     res.redirect('/assets/tables')
 }
+
+exports.deleteAssetFromTable = async (req, res) => {
+    await db.deleteAssetFromTable(req.body.id)
+    res.redirect('/assets')
+}

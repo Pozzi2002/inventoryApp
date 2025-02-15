@@ -9,18 +9,22 @@
   <body>
     <nav>
       <h2>Rich store inventory</h2>
-      <a href="/"><p>Home</p></a>
-      <a href="/assets">All assets</a>
-      <a href="/assets/tables">Edit tables</a>
+      <div class="navDiv">
+        <a href="/"><p>Home</p></a>
+        <a href="/assets">All assets</a>
+        <a href="/assets/tables">Edit tables</a>
+      </div>
     </nav>
     <hr>
     <main>
-      <div>
-        <p><b>Here you can manage your assets</b></h3>
-        <p>Total items: <%=getSums[0].quantity %></p>
-        <p>Total our point: <%=getSums[0].shops %></p>
-      </div>
-      <a href="assets">Go to manage</a>
+      <div class="info">
+      <b><p>Here you can manage your assets, but there is a info! Database is a big responsibility.</p></b>
+      <ul>
+        <li>Manage your assets carefully, you might get things mixed up</li>
+        <li>The site is created for responsible store employees</li>
+        <li>I want a pizza</li>
+      </ul>
+    </div>
     </main>
     <footer>
       <hr>

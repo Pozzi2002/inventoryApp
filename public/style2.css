@@ -1,8 +1,27 @@
+body {
+  margin: 0;
+}
+
 .divAllTables {
   display: flex;
   gap: 15rem;
   justify-content: center;
   align-items: center;
+}
+
+nav {
+  margin: 0.4rem;
+  display: flex;
+  flex-direction: column;
+}
+.navDiv {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 30px;
+}
+.navDiv a {
+  margin: 0;
 }
 .tableDiv {
   display: flex;

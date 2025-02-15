@@ -4,8 +4,7 @@ const db = require('../db/queries');
 
 
 indexRouter.get('/', async (req, res) => {
-  const getSums = await db.getSums()
-  res.render('index', {getSums: getSums})
+  res.render('index')
 });
 
 module.exports = indexRouter;

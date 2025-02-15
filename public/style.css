@@ -1,3 +1,6 @@
+body {
+    margin: 0;
+}
 footer {
     position: absolute;
     text-align: center;
@@ -5,6 +8,22 @@ footer {
     right:0;
     left: 0;
 }
+nav {
+    margin: 0.4rem;
+    display: flex;
+    flex-direction: column;
+}
+.navDiv {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    height: 30px;
+}
+.navDiv a {
+    margin: 0;
+}
+
+
 table {
     border-collapse: collapse;
     margin: auto;
@@ -53,4 +72,18 @@ form button {
 }
 form button:hover {
     cursor: pointer;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info p {
+  margin: 3rem;
+  font-size: 1.4rem;
+}
+.info li {
+    font-size: 1.4rem;
+    margin: 0.7rem;
 }

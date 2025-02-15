@@ -8,11 +8,13 @@
 </head>
 <body>
     <nav>
-      <h2>Rich store inventory</h2>
-      <a href="/"><p>Home</p></a>
-      <a href="/assets">All assets</a>
-      <a href="/assets/tables">Edit tables</a>
-    </nav>
+        <h2>Rich store inventory</h2>
+        <div class="navDiv">
+          <a href="/"><p>Home</p></a>
+          <a href="/assets">All assets</a>
+          <a href="/assets/tables">Edit tables</a>
+        </div>
+      </nav>
     <hr>
     <form action="/assets/search" method="GET">
         <label for="search">Search item: </label>
@@ -28,6 +30,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Address</th>
+            <th>Action</th>
         </tr>
         <% assets.map((asset) => { %>
             <tr>
@@ -36,6 +39,12 @@
                 <td><%= asset.price %></td>
                 <td><%= asset.quantity %></td>
                 <td><%= asset.address %></td>
+                <td>
+                    <form style="display: inline" action="/assets/tables/delete/asset" method="POST">
+                      <input value="<%= asset.id%>" name="id" style="display: none;"/>
+                      <button type="submit" style="display: inline;">Delete</button>
+                    </form>
+                </td>
             </tr>
         <% }) %> 
     </table>

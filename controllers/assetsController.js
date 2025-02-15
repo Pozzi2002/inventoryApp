@@ -1,4 +1,5 @@
 const db = require("../db/queries")
+const { validationResult } = require('express-validator');
 
 exports.getAssets = async (req, res) => {
     const assets = await db.getAllAssets();
@@ -18,29 +19,48 @@ exports.GetAllTables = async (req, res) => {
 };
 
 exports.addToProductTable = async (req, res) => {
+  const result = validationResult(req);
+  if (result.isEmpty()) {
     try {
-    await db.addToProductTable(req.body.name);
-        res.redirect('/assets/tables')
+      await db.addToProductTable(req.body.name);
+      res.redirect('/assets/tables')
     } catch {
-        res.redirect('/assets/tables')
+      res.redirect('/assets/tables')
     }
+  }
+  else {
+    res.redirect('/assets/tables')
+  }
 };
 
 exports.addToColorsTable = async (req, res) => {
+  const result = validationResult(req);
+  if (result.isEmpty()) {
     try {
-    await db.addToColorsTable(req.body.color);
-        res.redirect('/assets/tables')
+      await db.addToColorsTable(req.body.color);
+      res.redirect('/assets/tables')
     } catch{
-        res.redirect('/assets/tables')
+      res.redirect('/assets/tables')
     }
-}
+  }
+  else {
+   res.redirect('/assets/tables')
+  }
+};
+
 exports.addToAdressesTable = async (req, res) => {
+  const result = validationResult(req);
+  if (result.isEmpty()) {
     try {
         await db.addToAdressesTable(req.body.address);
         res.redirect('/assets/tables')
     } catch {
         res.redirect('/assets/tables')
     }
+  }
+  else {
+    res.redirect('/assets/tables')
+  }
 }
 
 exports.addToAssetsTable = async (req, res) => {
@@ -63,22 +83,37 @@ exports.deleteAddressFromTable = async (req, res) => {
     res.redirect('/assets/tables')
 }
 
-exports.editProductFromTable = async (req, res) => {
-    await db.editProductFromTable(req.body.newName, req.body.id)
-    res.redirect('/assets/tables')
-}
-
-exports.editColorFromTable = async (req, res) => {
-    await db.editColorFromTable(req.body.newColor, req.body.id)
-    res.redirect('/assets/tables')
-}
-
-exports.editAddressFromTable = async (req, res) => {
-    await db.editAddressFromTable(req.body.newAddress, req.body.id)
-    res.redirect('/assets/tables')
-}
-
 exports.deleteAssetFromTable = async (req, res) => {
     await db.deleteAssetFromTable(req.body.id)
     res.redirect('/assets')
+}
+
+exports.editProductFromTable = async (req, res) => {
+    const result = validationResult(req);
+    if (result.isEmpty()) {
+      await db.editProductFromTable(req.body.newName, req.body.id)
+      res.redirect('/assets/tables')
+    } else {
+      res.redirect('/assets/tables')
+    }
+}
+
+exports.editColorFromTable = async (req, res) => {
+    const result = validationResult(req);
+    if (result.isEmpty()) {
+      await db.editColorFromTable(req.body.newColor, req.body.id)
+      res.redirect('/assets/tables')
+    } else {
+      res.redirect('/assets/tables')    
+    }
+}
+
+exports.editAddressFromTable = async (req, res) => {
+    const result = validationResult(req);
+    if (result.isEmpty()) {
+      await db.editAddressFromTable(req.body.newAddress, req.body.id)
+      res.redirect('/assets/tables')
+    } else {
+      res.redirect('/assets/tables')   
+    }
 }

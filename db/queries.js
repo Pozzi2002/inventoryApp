@@ -58,3 +58,9 @@ exports.addToAdressesTable = async (address) => {
    return
 };
 
+exports.addToAssetsTable = async (name_id, color_id, address_id, price = 0, quantity = 0) => {
+  await pool.query(`INSERT INTO assets (name_id, color_id, address_id, price, quantity) 
+                    VALUES ($1, $2, $3, $4, $5)`, [name_id, color_id, address_id, price, quantity])
+  return
+};
+

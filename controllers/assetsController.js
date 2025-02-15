@@ -42,3 +42,8 @@ exports.addToAdressesTable = async (req, res) => {
         res.redirect('/assets/tables')
     }
 }
+
+exports.addToAssetsTable = async (req, res) => {
+    await db.addToAssetsTable(req.body.name, req.body.color, req.body.address, req.body.price, req.body.quantity)
+    res.redirect('/assets')
+}

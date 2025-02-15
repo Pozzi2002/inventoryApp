@@ -79,3 +79,7 @@ table span {
 .assetsSelects select, option {
   font-size: 1.3rem;
 }
+
+.assetsSelects input {
+  width: 3rem;
+}

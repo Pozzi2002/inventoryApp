@@ -9,7 +9,7 @@ assetsRouter.get('/tables', assetsController.GetAllTables);
 assetsRouter.post('/tables/name', assetsController.addToProductTable);
 assetsRouter.post('/tables/color', assetsController.addToColorsTable);
 assetsRouter.post('/tables/address', assetsController.addToAdressesTable);
-
+assetsRouter.post('/tables/new', assetsController.addToAssetsTable);
 
 
 

@@ -44,9 +44,7 @@ INSERT INTO assets (name_id, color_id, address_id, price, quantity)
 
 async function main() {
   console.log('Seeding...');
-  const client = new Client({
-    connectionString: 'postgresql://NS:1@localhost:5432/inventory_app'
-  });
+  const client = new Client();
   await client.connect();
   await client.query(SQL);
   await client.end();

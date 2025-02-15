@@ -1,7 +1,5 @@
 const { Pool } = require('pg');
 
-const pool = new Pool({
-    connectionString: 'postgresql://NS:1@localhost:5432/inventory_app'
-});
+const pool = new Pool();
 
 module.exports = pool;

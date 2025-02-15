@@ -29,17 +29,17 @@ exports.searchAssetsByName = async (name) => {
 };
 
 exports.productsTable = async () => {
-   const { rows } = await pool.query('SELECT name FROM products');
+   const { rows } = await pool.query('SELECT id, name FROM products');
    return rows
 };
 
 exports.colorsTable = async () => {
-   const { rows } = await pool.query('SELECT color FROM colors');
+   const { rows } = await pool.query('SELECT id, color FROM colors');
    return rows;
 };
 
 exports.addressesTable = async () => {
-   const { rows } = await pool.query('SELECT address FROM addresses');
+   const { rows } = await pool.query('SELECT id, address FROM addresses');
    return rows;
 }
 
@@ -47,3 +47,14 @@ exports.addToProductTable = async (name) => {
    await pool.query('INSERT INTO products (name) VALUES ($1)', [name]);
    return
 };
+
+exports.addToColorsTable = async (color) => {
+   await pool.query('INSERT INTO colors (color) VALUES ($1)', [color]);
+   return
+};
+
+exports.addToAdressesTable = async (address) => {
+   await pool.query('INSERT INTO addresses (address) VALUES ($1)', [address]);
+   return
+};
+

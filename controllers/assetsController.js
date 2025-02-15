@@ -18,6 +18,27 @@ exports.GetAllTables = async (req, res) => {
 };
 
 exports.addToProductTable = async (req, res) => {
+    try {
     await db.addToProductTable(req.body.name);
-    res.redirect('/assets/tables')
+        res.redirect('/assets/tables')
+    } catch {
+        res.redirect('/assets/tables')
+    }
+};
+
+exports.addToColorsTable = async (req, res) => {
+    try {
+    await db.addToColorsTable(req.body.color);
+        res.redirect('/assets/tables')
+    } catch{
+        res.redirect('/assets/tables')
+    }
+}
+exports.addToAdressesTable = async (req, res) => {
+    try {
+        await db.addToAdressesTable(req.body.address);
+        res.redirect('/assets/tables')
+    } catch {
+        res.redirect('/assets/tables')
+    }
 }
